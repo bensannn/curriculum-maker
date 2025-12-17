@@ -72,8 +72,8 @@ $("body").append(trash);
 // Style it (optional)
 $("#trash").css({
     position: "fixed",
-    bottom: "10px",
-    right: "10px",
+    top: "10px",
+    left: "10px",
     width: "150px",
     height: "50px",
     background: "red",
@@ -115,3 +115,4 @@ $("#trash").droppable({
         }
     }
 });
+
