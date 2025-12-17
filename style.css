@@ -1,0 +1,269 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  padding: 20px;
+}
+
+  #container {
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    gap: 6px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  }
+
+  /* DRAGGABLE ITEMS */
+.item {
+    width: 80px; /* adjust as needed */
+    height: 30px;
+    font-size: 10px;
+    background-color: #d9edf7;
+    border: 1px solid #31708f;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+}
+
+#resetLayout {
+  width: 100%;
+  padding: 5px 0;
+  margin-bottom: 10px;
+
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #31708f;
+  
+  border: 1px solid #ccc;
+  background: #f5f5f5;
+}
+
+.layout-container {
+  display: flex;
+  gap: 12px;
+}
+
+/* Make reset button align with left column width */
+#resetLayout {
+  max-width: 100%;
+}
+
+/* SOURCE BOXES (droppable parents) */
+.source {
+  border: 1px solid #aaa;
+  background: #f9f9f9;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* fill grid column */
+}
+
+/* Make the curriculum container full width */
+#curriculum-container {
+    width: 100%;
+    display:contents; 
+    gap: 10px;
+    box-sizing: border-box;
+}
+
+/* Make each year table take equal width */
+.year-table {
+    flex: 1; /* grow equally */
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    min-width: 0; /* ensures flex children shrink properly */
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+
+/* Semester headers span full width of the year table */
+.semester-headers {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 4 columns: 1st, 2nd, units, units */
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 75%;
+    gap: 5px;
+}
+
+/* Make rows take full width */
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* match semester columns + unit columns */
+    gap: 5px;
+    margin-bottom: 3px;
+}
+
+/* Make destination cells full size inside their grid column */
+.cell.destination {
+    border: 1px solid #aaa;
+    min-height: 50px; /* adjust row height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 70%;
+    box-sizing: border-box;
+}
+
+/* Make unit-display cells also fill their grid cell */
+.cell.unit-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+}
+
+/* Draggable container full width on top */
+.draggable-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 10px;
+    justify-content: flex-start;
+}
+
+.item:active {
+  cursor: grabbing;
+}
+
+/* CURRICULUM TABLE */
+.curriculum {
+  width: 100%;
+}
+
+
+/* Year header */
+.year {
+  text-align: center;
+  font-weight: bold;
+  padding: 5px;
+  border-bottom: 2px solid #000;
+}
+
+
+/* Semester header cells */
+.semester-header {
+  text-align: center;
+  font-weight: bold;
+  padding: 6px 0;
+  border: 1px solid #999;
+  box-sizing: border-box;
+}
+
+/* Row cells */
+.cell {
+  border: 1px solid #999;
+  min-height: 42px;
+  box-sizing: border-box;
+}
+
+/* Total row styling */
+.row.total .cell {
+  font-weight: bold;
+  background: #f3f3f3;
+}
+
+/* Each row contains 2 years side by side */
+.year-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+
+/* Headers */
+.year {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.cell {
+  border: 1px solid #999;
+  min-height: 40px;
+}
+
+/* Total row styling */
+.row.total .cell {
+  font-weight: bold;
+  background: #f3f3f3;
+}
+
+.cell:empty::after {
+  content: "";
+  display: block;
+  height: 100%;
+}
+
+/* -----
+-----------
+--------------
+----------------- */
+form {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 0.5%;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: system-ui, sans-serif;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 100%;
+  color: #333;
+}
+
+input,
+textarea,
+select {
+  width: 93.5%;
+  display: block;
+  padding: 0.6rem 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #31708f;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+button {
+  width: 100%;
+  padding: 0.7rem;
+  background: #31708f;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #4338ca;
+}
+
+button:disabled {
+  background: #a5b4fc;
+  cursor: not-allowed;
+}

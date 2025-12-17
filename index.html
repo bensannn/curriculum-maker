@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Curriculum Planner</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+</head>
+
+<body>
+
+  <form id="add-course-form">
+    <input type="text" id="course-name" placeholder="Course Name" required>
+    <input type="number" id="course-hours" placeholder="Hours of Class and/or Lab Time" required>
+    <input type="number" id="course-units" placeholder="Amount of Units" required>
+    <button type="submit">Add Course</button>
+  </form>
+
+  <!-- RESET BUTTON BELOW DRAGGABLES -->
+  <button id="resetLayout">Reset</button>
+
+  <!-- DRAGGABLE ITEMS CONTAINER ON TOP -->
+  <div id="container" class="draggable-container grid-4">
+    <script type="module" src="list.js"></script> <!-- dynamically generate items here -->
+  </div>
+
+  <!-- CURRICULUM TABLE BELOW -->
+  <div id="curriculum-container"></div>
+
+  <!-- MAIN SCRIPT FILES -->
+  <script type="module" src="table.js"></script>
+  <script type="module" src="script.js"></script>
+  <script type="module" src="logger.js"></script>
+  <script type="module" src="units.js"></script>
+  <script type="module" src="add.js"></script>
+
+</body>
+
+</html>
